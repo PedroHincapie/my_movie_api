@@ -50,7 +50,7 @@ def message():
 
 
 @app.get("/web", tags=["Home-web"])
-def message():
+def hello():
     return HTMLResponse("<h1>Holii Mamá</h1>")
 
 
