@@ -10,6 +10,7 @@ movies = [
         "id": 1,
         "movie": "The Shawshank Redemption",
         "rating": 9.2,
+        "category": "accion",
         "image": "images/shawshank.jpg",
         "imdb_url": "https://www.imdb.com/title/tt0111161/",
     },
@@ -17,6 +18,7 @@ movies = [
         "id": 2,
         "movie": "The Godfather",
         "rating": 9.2,
+        "category": "accion",
         "image": "images/godfather.jpg",
         "imdb_url": "https://www.imdb.com/title/tt0068646/",
     },
@@ -31,6 +33,7 @@ movies = [
         "id": 4,
         "movie": "Pulp Fiction",
         "rating": 8.9,
+        "category": "accion",
         "image": "images/pulp_fiction.jpg",
         "imdb_url": "https://www.imdb.com/title/tt0110912/",
     },
@@ -38,6 +41,7 @@ movies = [
         "id": 5,
         "movie": "The Lord of the Rings: The Return of the King",
         "rating": 9,
+        "category": "accion",
         "image": "images/lotr_return_king.jpg",
         "imdb_url": "https://www.imdb.com/title/tt0167260/",
     },
@@ -59,9 +63,20 @@ def get_movies():
     return movies
 
 
+@app.get("/movies/", tags=["Peliculas por categorias"])
+def get_movies_by_category(category: str, year: int):
+    print(category)
+    my_movies = []
+    for item in movies:
+        print(item)
+        print(my_movies)
+    return []
+
+
 @app.get("/movies/{id}")
 def get_movies_by_id(id: int):
     for item in movies:
         if item["id"] == id:
             return item
     return {}
+
